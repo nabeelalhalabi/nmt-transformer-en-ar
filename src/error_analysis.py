@@ -69,7 +69,7 @@ def main(config_path: str, predictions_path: str) -> None:
     report.append(format_examples("Likely over-translation (len_ratio > 1.6)", too_long))
 
     out_md.write_text("\n".join(report), encoding="utf-8")
-    print(f"✅ Wrote: {out_md}")
+    print(f"Wrote: {out_md}")
 
 
 if __name__ == "__main__":

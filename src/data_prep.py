@@ -102,7 +102,7 @@ def main(config_path: str) -> None:
     with open(processed_dir / "stats.json", "w", encoding="utf-8") as f:
         json.dump(stats, f, indent=2, ensure_ascii=False)
 
-    print("✅ Data preparation complete.")
+    print(" Data preparation complete.")
     print(f"Saved: {train_path}, {val_path}, {test_path}")
     print(f"Stats: {processed_dir / 'stats.json'}")
 

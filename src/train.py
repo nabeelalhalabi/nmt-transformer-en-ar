@@ -148,14 +148,14 @@ def main(config_path: str) -> None:
         compute_metrics=build_compute_metrics(tokenizer, bleu_metric, chrf_metric),
     )
 
-    print("🚀 Starting training...")
+    print(" Starting training...")
     trainer.train()
 
-    print("💾 Saving final model + tokenizer...")
+    print(" Saving final model + tokenizer...")
     trainer.save_model(str(out_dir))
     tokenizer.save_pretrained(str(out_dir))
 
-    print(f"✅ Done. Model saved to: {out_dir}")
+    print(f"Done. Model saved to: {out_dir}")
 
 
 if __name__ == "__main__":
