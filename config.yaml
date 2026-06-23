@@ -1,0 +1,57 @@
+project:
+  seed: 42
+
+data:
+  raw_path: "data/raw/Translation Dataset.csv"
+  processed_dir: "data/processed"
+  source_col: "english"
+  target_col: "arabic"
+
+  # Length rule (justification): drop extremely long pairs to stabilize training
+  # and reduce padding/memory. Adjust after inspecting stats if needed.
+  max_source_words: 80
+  max_target_words: 80
+
+model:
+  # Pretrained tokenizer + seq2seq model 
+  model_name: "Helsinki-NLP/opus-mt-en-ar"
+  max_source_length: 128
+  max_target_length: 128
+
+training:
+  output_dir: "outputs/en-ar"
+
+  num_train_epochs: 5
+  learning_rate: 5e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+
+  per_device_train_batch_size: 8
+  per_device_eval_batch_size: 8
+  gradient_accumulation_steps: 1
+
+  evaluation_strategy: "steps"
+  eval_steps: 500
+  save_steps: 500
+  logging_steps: 50
+
+  fp16: true
+  generation_max_length: 128
+  generation_num_beams: 4
+
+
+  per_device_train_batch_size: 8
+  per_device_eval_batch_size: 8
+  gradient_accumulation_steps: 1
+
+  evaluation_strategy: "steps"
+  eval_steps: 500
+  save_steps: 500
+  logging_steps: 50
+
+  # Generation (used for eval + demo)
+  generation_max_length: 128
+  generation_num_beams: 4
+
+  # Will automatically disable if CUDA not available
+  fp16: true

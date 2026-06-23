@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Data/artifacts
+data/processed/
+outputs/
+*.pt
+*.bin
+
+# OS/editor
+.DS_Store
+.vscode/
